@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Horizon">
+<meta name="theme-color" content="#08080E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<script>
+(function(){
+  const manifest = "{\"name\": \"Horizon\", \"short_name\": \"Horizon\", \"start_url\": \".\", \"display\": \"standalone\", \"background_color\": \"#08080E\", \"theme_color\": \"#08080E\", \"icons\": [{\"src\": \"data:image/png;base64,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\", \"sizes\": \"192x192\", \"type\": \"image/png\"}]}";
+  const blob = new Blob([manifest], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('link');
+  link.rel = 'manifest';
+  link.href = url;
+  document.head.appendChild(link);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Horizon</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --ink:#08080E;--ink2:#0E0E1A;--ink3:#141420;
+  --parchment:#F0EEF8;--parchment-dim:rgba(240,238,248,0.55);
+  --gold:#C9A84C;--gold-pale:rgba(201,168,76,0.1);
+}
+html,body{height:100%;background:var(--ink);font-family:'Crimson Pro',serif;color:var(--parchment);overflow:hidden}
+
+/* HEADER */
+#header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,14,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,168,76,0.12);padding:0 16px;height:52px;display:flex;align-items:center}
+#header h1{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);font-weight:400;letter-spacing:3px}
+
+/* TRIP LIST */
+#trip-list{position:fixed;top:52px;left:0;right:0;bottom:0;overflow-y:auto;padding:16px 16px 40px;scrollbar-width:thin;scrollbar-color:rgba(201,168,76,0.2) transparent}
+
+/* TRIP CARD */
+.trip-card{border-radius:14px;overflow:hidden;margin-bottom:16px;cursor:pointer;position:relative;border:1px solid rgba(201,168,76,0.12);transition:transform .2s}
+.trip-card:active{transform:scale(0.98)}
+.trip-hero{width:100%;height:180px;position:relative;overflow:hidden}
+.trip-hero-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem}
+.trip-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,14,0.1) 0%,rgba(8,8,14,0.7) 100%)}
+.trip-hero-content{position:absolute;bottom:0;left:0;right:0;padding:14px 16px}
+.trip-name{font-family:'Playfair Display',serif;font-size:1.4rem;color:white;font-weight:400;letter-spacing:1px}
+.trip-dates{font-size:0.75rem;color:rgba(255,255,255,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.trip-countdown{position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:6px 10px;text-align:center}
+.trip-countdown-num{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);line-height:1}
+.trip-countdown-label{font-size:0.6rem;color:rgba(201,168,76,0.5);letter-spacing:1px;text-transform:uppercase}
+.trip-footer{padding:12px 16px;background:var(--ink2);display:flex;gap:8px;flex-wrap:wrap}
+.trip-place-chip{font-size:0.75rem;color:var(--parchment-dim);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:3px 10px}
+
+/* TRIP DETAIL */
+#trip-detail{position:fixed;inset:0;z-index:200;background:var(--ink);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden}
+#trip-detail.open{transform:translateX(0)}
+#detail-header{padding:12px 16px;border-bottom:1px solid rgba(201,168,76,0.12);display:flex;align-items:center;gap:12px;flex-shrink:0;background:var(--ink)}
+#detail-back{background:none;border:none;color:var(--gold);font-size:1.3rem;cursor:pointer;padding:4px}
+#detail-trip-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--parchment);font-weight:400}
+#detail-trip-sub{font-size:0.72rem;color:rgba(201,168,76,0.4);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+
+/* DETAIL TABS */
+#detail-tab-bar{display:flex;background:var(--ink);border-bottom:1px solid rgba(201,168,76,0.1);flex-shrink:0;overflow-x:auto;scrollbar-width:none}
+#detail-tab-bar::-webkit-scrollbar{display:none}
+.dtab{flex-shrink:0;padding:9px 14px;background:none;border:none;border-bottom:2px solid transparent;font-family:'Crimson Pro',serif;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:rgba(201,168,76,0.3);cursor:pointer;transition:all .2s;white-space:nowrap}
+.dtab.active{color:var(--gold);border-bottom-color:var(--gold)}
+#detail-content{flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(201,168,76,0.2) transparent}
+.dtab-view{display:none;padding:16px 16px 60px}
+
+/* HIGHLIGHTS */
+.place-section{margin-bottom:20px}
+.place-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-pale);color:var(--gold);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.12)}
+.highlight-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.hi-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;opacity:0.5}
+.hi-text{font-size:0.85rem;color:var(--parchment-dim);line-height:1.5}
+.hi-text strong{color:rgba(240,238,248,0.8)}
+.alert-box{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:12px;font-size:0.8rem;color:rgba(201,168,76,0.7);line-height:1.5}
+
+/* READINESS */
+#readiness-area{width:100%;min-height:200px;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.12);border-radius:8px;padding:12px;color:var(--parchment);font-family:'Crimson Pro',serif;font-size:0.9rem;resize:none;outline:none;line-height:1.6}
+#readiness-area::placeholder{color:rgba(201,168,76,0.15)}
+#readiness-save{margin-top:8px;padding:8px 20px;background:var(--gold-pale);border:1px solid rgba(201,168,76,0.25);border-radius:8px;color:var(--gold);font-family:'Crimson Pro',serif;font-size:0.85rem;cursor:pointer;letter-spacing:1px}
+
+/* BOOKINGS */
+.booking-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--ink2);border:1px solid rgba(201,168,76,0.08);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .2s}
+.booking-check{width:20px;height:20px;border-radius:4px;border:2px solid rgba(201,168,76,0.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.booking-check.done{background:var(--gold);border-color:var(--gold)}
+.booking-check.done::after{content:'✓';font-size:0.7rem;color:var(--ink);font-weight:700}
+.booking-text{flex:1;font-size:0.88rem;color:var(--parchment-dim);line-height:1.3}
+.booking-item.done-item .booking-text{text-decoration:line-through;color:rgba(240,238,248,0.3)}
+.booking-priority{font-size:0.65rem;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.booking-priority.high{background:rgba(192,57,43,0.15);color:#E57373;border:1px solid rgba(192,57,43,0.2)}
+.booking-priority.med{background:rgba(201,168,76,0.1);color:rgba(201,168,76,0.6);border:1px solid rgba(201,168,76,0.15)}
+
+/* TOAST */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink2);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:9px 18px;border-radius:20px;font-size:0.85rem;opacity:0;transition:all .3s;pointer-events:none;z-index:999;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── EXPORT/IMPORT ── */
+#ei-btn{background:none;border:none;color:rgba(201,168,76,0.35);font-size:1.1rem;cursor:pointer;padding:4px 8px;transition:color .2s;flex-shrink:0}
+#ei-btn:active{color:var(--gold)}
+#ei-overlay{position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.88);display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .25s}
+#ei-overlay.show{opacity:1;pointer-events:all}
+#ei-box{width:100%;background:#1A1208;border-top:1px solid rgba(201,168,76,0.25);border-radius:20px 20px 0 0;padding:24px 20px 40px;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+#ei-overlay.show #ei-box{transform:translateY(0)}
+.ei-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold,#C9A84C);margin-bottom:6px}
+.ei-sub{font-size:0.78rem;color:rgba(201,168,76,0.4);margin-bottom:18px;line-height:1.5}
+.ei-btn-row{display:flex;gap:10px;margin-bottom:16px}
+.ei-action-btn{flex:1;padding:11px;border-radius:8px;font-family:'Playfair Display',serif;font-size:0.9rem;cursor:pointer;transition:all .2s}
+.ei-export-btn{background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:#FFD55A}
+.ei-import-btn{background:rgba(42,184,100,0.1);border:1px solid rgba(42,184,100,0.3);color:#4CAF50}
+#ei-code-area{width:100%;background:rgba(0,0,0,0.3);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:10px;color:rgba(245,237,216,0.7);font-family:monospace;font-size:0.72rem;resize:none;outline:none;min-height:80px;line-height:1.4;margin-bottom:10px;word-break:break-all}
+#ei-code-area::placeholder{color:rgba(201,168,76,0.15)}
+.ei-code-action-row{display:flex;gap:8px}
+.ei-copy-btn{flex:1;padding:9px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:8px;color:rgba(201,168,76,0.7);font-family:'Crimson Pro',serif;font-size:0.85rem;cursor:pointer}
+.ei-confirm-btn{flex:1;padding:9px;background:rgba(42,184,100,0.15);border:1px solid rgba(42,184,100,0.3);border-radius:8px;color:#4CAF50;font-family:'Crimson Pro',serif;font-size:0.85rem;cursor:pointer;display:none}
+.ei-close-btn{padding:9px 20px;background:none;border:1px solid rgba(201,168,76,0.15);border-radius:8px;color:rgba(201,168,76,0.4);font-family:'Crimson Pro',serif;font-size:0.85rem;cursor:pointer}
+
+/* GALLERY */
+.gallery-place{margin-bottom:20px}
+.gallery-place-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--gold);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.12)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.gallery-cell{aspect-ratio:1;border-radius:6px;overflow:hidden;position:relative;background:rgba(201,168,76,0.05);border:1px dashed rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.gallery-cell img{width:100%;height:100%;object-fit:cover}
+.gallery-cell .add-icon{font-size:1.5rem;opacity:0.25}
+.gallery-cell .del-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;color:white;font-size:1.2rem}
+.gallery-cell:active .del-overlay{display:flex}
+</style>
+</head>
+<body>
+
+<div id="header"><h1>Horizon</h1><button id="ei-btn" onclick="eiOpen()" title="Backup data">⬆⬇</button></div>
+
+<div id="trip-list">
+  <!-- cards injected by JS -->
+</div>
+
+<div id="trip-detail">
+  <div id="detail-header">
+    <button id="detail-back" onclick="closeDetail()">←</button>
+    <div>
+      <div id="detail-trip-name"></div>
+      <div id="detail-trip-sub"></div>
+    </div>
+  </div>
+  <div id="detail-tab-bar">
+    <button class="dtab active" onclick="showDTab('highlights')">Highlights</button>
+    <button class="dtab" onclick="showDTab('gallery')">Gallery</button>
+    <button class="dtab" onclick="showDTab('readiness')">Readiness</button>
+    <button class="dtab" onclick="showDTab('bookings')">Bookings</button>
+  </div>
+  <div id="detail-content">
+    <div class="dtab-view" id="dtab-highlights"></div>
+    <div class="dtab-view" id="dtab-gallery"></div>
+    <div class="dtab-view" id="dtab-readiness">
+      <div class="section-title" style="font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.35);margin-bottom:12px">How ready do you feel?</div>
+      <textarea id="readiness-area" rows="8" placeholder="Fitness level, bookings progress, excitement, concerns — anything relevant to how prepared you feel for this trip…"></textarea>
+      <button id="readiness-save" onclick="saveReadiness()">Save</button>
+    </div>
+    <div class="dtab-view" id="dtab-bookings"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const TRIPS = [
+  {
+    id: 'japan',
+    name: 'Japan',
+    emoji: '⛩️',
+    color: '#C0392B',
+    dates: 'October 2026',
+    targetDate: '2026-10-01',
+    places: ['Dubai','Tokyo','Kyoto','Osaka','Seoul'],
+    highlights: [
+      {place:'Dubai', items:[
+        {text:'Al Fahidi historic district — the old city before the towers'},
+        {text:'Dubai Fountain at Burj Park — evening show'},
+        {text:'Fly on evening of Day 2 to Tokyo'}
+      ]},
+      {place:'Tokyo', items:[
+        {text:'<strong>Book now:</strong> Wagyumafia — the world\'s most exclusive wagyu experience'},
+        {text:'<strong>Book now:</strong> teamLab Planets — immersive digital art, Toyosu. Get in early'},
+        {text:'Omoide Yokocho (Memory Lane) — grilled skewers, steam, history'},
+        {text:'Asakusa & Senso-ji temple at dawn before the crowds'},
+        {text:'Shibuya crossing, Harajuku, Tsukiji market'},
+        {text:'Day trip: Kamakura (giant Buddha) or Hakone (Mt Fuji views, onsen ryokan)'}
+      ]},
+      {place:'Kyoto', items:[
+        {text:'<strong>Fushimi Inari at dawn</strong> — thousands of torii gates, no crowds, extraordinary'},
+        {text:'Kinkaku-ji (Golden Pavilion), Kiyomizudera Temple'},
+        {text:'Arashiyama bamboo grove, Nijo Castle'},
+        {text:'Gion evening walk — lantern light, geisha district'},
+        {text:'Day trip to Nara — the deer park'}
+      ]},
+      {place:'Osaka / Hiroshima', items:[
+        {text:'<strong>Hiroshima day trip</strong> — shinkansen 1hr 20min (JR Pass covers it). Peace Memorial Museum, A-Bomb Dome, Miyajima Island floating torii. One of Japan\'s most unmissable days'},
+        {text:'OKO Okonomiyaki — <strong>book ahead</strong>'},
+        {text:'Osaka Castle, Dotonbori neon district, Kuromon Market'},
+        {text:'Gyozaoh for gyoza, street food everywhere'}
+      ]},
+      {place:'Seoul', items:[
+        {text:'Gyeongbokgung Palace, Myeong-dong street food'},
+        {text:'The Roof Seoul rooftop bar, Griffin Bar jazz, Seoul Gypsy craft beer'},
+        {text:'Note: back before 17 Oct — London Stag that weekend'}
+      ]}
+    ],
+    bookings: [
+      {text:'Japan Rail Pass — BUY IN UK BEFORE TRAVEL',priority:'high'},
+      {text:'Wagyumafia Tokyo — book as far ahead as possible',priority:'high'},
+      {text:'teamLab Planets — book ahead online',priority:'high'},
+      {text:'OKO Okonomiyaki Osaka',priority:'high'},
+      {text:'Emirates MAN → Dubai → Tokyo',priority:'high'},
+      {text:'Tokyo → Seoul flights',priority:'high'},
+      {text:'Seoul → MAN flights',priority:'high'},
+      {text:'Tokyo accommodation (Shinjuku)',priority:'med'},
+      {text:'Kyoto city centre accommodation',priority:'med'},
+      {text:'Osaka Namba accommodation',priority:'med'},
+      {text:'Seoul Myeong-dong accommodation',priority:'med'},
+      {text:'Hiroshima day trip plan',priority:'med'},
+      {text:'Nara deer park visit plan',priority:'med'},
+    ]
+  },
+  {
+    id: 'venice',
+    name: 'Venice',
+    emoji: '🛶',
+    color: '#2A6AA0',
+    dates: 'November 2026',
+    targetDate: '2026-11-01',
+    places: ['Venice','Murano'],
+    highlights: [
+      {place:'Venice with Heike', items:[
+        {text:'<strong>Hotel: Savoia & Jolanda</strong> — request rooms 302 or 303 specifically. Lagoon balcony view. Opens 15 July 2026 — book immediately'},
+        {text:'San Zaccaria vaporetto stop is steps from the hotel — flat boarding, no steps for Heike'},
+        {text:'Private water taxi from Marco Polo Airport — pulls directly to hotel waterfront. ~£120. Book through hotel'},
+        {text:'St Mark\'s Square is ~200m flat walk from hotel — no bridges'},
+        {text:'<strong>St Mark\'s Basilica</strong> — skip-the-line tickets ~€9pp. Disability entrance available — step-free'},
+        {text:'<strong>Al Covo restaurant</strong> — book well ahead'},
+        {text:'Gondola — book via hotel concierge near San Zaccaria. Gondolier assists in/out for Heike'},
+        {text:'Rialto Bridge and market — morning, weekdays'},
+        {text:'Terrazza Principessa restaurant at hotel — lagoon views at dinner'}
+      ]},
+      {place:'Murano', items:[
+        {text:'Vaporetto from San Zaccaria — short crossing'},
+        {text:'Murano glass furnaces — watch the glassblowing'},
+        {text:'Quieter than Venice main island, easier for Heike to navigate'}
+      ]}
+    ],
+    alert: '⚠ Book hotel immediately when Savoia & Jolanda reopens 15 July 2026. Rooms 302/303 are the target — lagoon balcony view.',
+    bookings: [
+      {text:'Savoia & Jolanda — rooms 302 or 303 — BOOK 15 JULY',priority:'high'},
+      {text:'Private water taxi from Marco Polo airport',priority:'high'},
+      {text:'Al Covo restaurant reservation',priority:'high'},
+      {text:'Flights MAN → Venice',priority:'high'},
+      {text:'St Mark\'s Basilica skip-the-line tickets',priority:'med'},
+      {text:'Gondola (via hotel concierge)',priority:'med'},
+      {text:'Trattoria Zaccaria reservation',priority:'med'},
+    ]
+  },
+  {
+    id: 'southamerica',
+    name: 'South America',
+    emoji: '🌎',
+    color: '#2E7D32',
+    dates: 'May 2027',
+    targetDate: '2027-05-01',
+    places: ['São Paulo','Rio de Janeiro','Buenos Aires','Colonia','Montevideo'],
+    highlights: [
+      {place:'São Paulo', items:[
+        {text:'Mercado Municipal — extraordinary food hall'},
+        {text:'Pinacoteca art museum (free Saturdays), Museu Afro Brasil'},
+        {text:'Theatro Municipal. Evenings: Vila Madalena, Pinheiros neighbourhood'}
+      ]},
+      {place:'Rio de Janeiro', items:[
+        {text:'<strong>Christ the Redeemer</strong> — go early, clear day. Book ahead'},
+        {text:'Tijuca National Park — jeep tour through urban rainforest'},
+        {text:'Sugarloaf Mountain at sunset'},
+        {text:'Escadaria Selarón steps at dawn, then up to Santa Teresa — bohemian hilltop, cobbled streets, artist cafés, the iconic yellow tram'},
+        {text:'Lapa live music — Friday/Saturday nights'},
+        {text:'Beaches: Ipanema Posto 9 (social hub), Leblon (quieter), Barra da Tijuca (long, uncrowded)'},
+        {text:'<strong>Maracanã Stadium match</strong> — Flamengo/Fluminense or Copa Libertadores. Biometric registration required in advance. Book via reputable operator with hotel transport'},
+        {text:'<strong>Favela visit</strong> (optional) — community-based operator only. Vidigal or Santa Marta recommended. Never independently'},
+        {text:'<strong>Safety:</strong> Uber only. Never hail street cabs. Minimal valuables on beach'}
+      ]},
+      {place:'Buenos Aires', items:[
+        {text:'Casa Rosada, San Telmo tango and Sunday antiques market'},
+        {text:'Recoleta Cemetery, La Boca/Caminito'},
+        {text:'<strong>Parrilla Don Julio</strong> — best steak in the world. Book ahead'},
+        {text:'Football match: Boca Juniors (La Bombonera) or River Plate — book via operator with transport'},
+        {text:'EZE airport is 35km from centre — allow extra time'}
+      ]},
+      {place:'Colonia del Sacramento', items:[
+        {text:'<strong>Buquebus ferry from BA</strong> — book online. ~1 hour crossing'},
+        {text:'UNESCO old town — overnight to avoid day-tripper crowds'},
+        {text:'Cobbled streets, lighthouse, most peaceful stop on the trip'}
+      ]},
+      {place:'Montevideo', items:[
+        {text:'Salvo Palace rooftop, Mercado del Puerto'},
+        {text:'Avenida 18 de Julio — relaxed finale to the trip'},
+        {text:'<strong>Yellow fever:</strong> check NHS fitfortravel.nhs.uk 6-8 weeks before travel'}
+      ]}
+    ],
+    bookings: [
+      {text:'Flights MAN → (Lisbon/Madrid) → São Paulo',priority:'high'},
+      {text:'Domestic São Paulo → Rio (~1hr)',priority:'high'},
+      {text:'Rio → Buenos Aires direct (~3.5hrs)',priority:'high'},
+      {text:'Buquebus ferry BA → Colonia — book online',priority:'high'},
+      {text:'Parrilla Don Julio Buenos Aires',priority:'high'},
+      {text:'Christ the Redeemer tickets',priority:'high'},
+      {text:'Travel insurance (GHIC not valid in South America)',priority:'high'},
+      {text:'Maracanã match — biometric registration required',priority:'med'},
+      {text:'Favela tour operator (community-based)',priority:'med'},
+      {text:'Montevideo → MAN return flights',priority:'med'},
+      {text:'São Paulo accommodation',priority:'med'},
+      {text:'Rio Ipanema/Copacabana accommodation',priority:'med'},
+      {text:'Buenos Aires accommodation',priority:'med'},
+      {text:'Yellow fever — check fitfortravel.nhs.uk 6-8 wks before',priority:'med'},
+    ]
+  }
+];
+
+// STORAGE
+const KEY='horizon_v2';
+function ld(){return JSON.parse(localStorage.getItem(KEY)||'{}')}
+function sv(d){localStorage.setItem(KEY,JSON.stringify(d))}
+
+// COUNTDOWN
+function daysUntil(dateStr){
+  const d=new Date(dateStr);const t=new Date();t.setHours(0,0,0,0);
+  return Math.max(0,Math.ceil((d-t)/(1000*60*60*24)));
+}
+
+// RENDER TRIP LIST
+function renderList(){
+  const list=document.getElementById('trip-list');
+  list.innerHTML=TRIPS.map(trip=>{
+    const days=daysUntil(trip.targetDate);
+    return `<div class="trip-card" onclick="openTrip('${trip.id}')">
+      <div class="trip-hero">
+        <div class="trip-hero-bg" style="background:linear-gradient(135deg,${trip.color}33,${trip.color}11)">${trip.emoji}</div>
+        <div class="trip-hero-overlay"></div>
+        <div class="trip-hero-content">
+          <div class="trip-name">${trip.name}</div>
+          <div class="trip-dates">${trip.dates}</div>
+        </div>
+        <div class="trip-countdown">
+          <div class="trip-countdown-num">${days}</div>
+          <div class="trip-countdown-label">days</div>
+        </div>
+      </div>
+      <div class="trip-footer">
+        ${trip.places.map(p=>`<div class="trip-place-chip">${p}</div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// OPEN TRIP
+let currentTrip=null;
+function openTrip(id){
+  currentTrip=TRIPS.find(t=>t.id===id);
+  document.getElementById('detail-trip-name').textContent=currentTrip.name;
+  document.getElementById('detail-trip-sub').textContent=currentTrip.dates+' · '+daysUntil(currentTrip.targetDate)+' days away';
+  renderHighlights();renderBookings();loadReadiness();
+  showDTab('highlights');
+  document.getElementById('trip-detail').classList.add('open');
+}
+function closeDetail(){document.getElementById('trip-detail').classList.remove('open')}
+
+
+function renderGallery(){
+  const t = currentTrip;
+  const d = ld();
+  const galEl = document.getElementById('dtab-gallery');
+  const places = t.highlights.map(h=>h.place);
+  
+  let html = '<div style="font-size:0.78rem;color:rgba(201,168,76,0.35);margin-bottom:16px;letter-spacing:1px">Tap a slot to add a photo. Long press to remove.</div>';
+  
+  places.forEach(place => {
+    const key = t.id + '_gal_' + place.replace(/\s+/g,'_');
+    const photos = d[key] || [];
+    html += `<div class="gallery-place">
+      <div class="gallery-place-name">${place}</div>
+      <div class="gallery-grid">
+        ${photos.map((src,i) => `<div class="gallery-cell" ontouchstart="galLongPress('${key}',${i},this)" ontouchend="galCancelLP()">
+          <img src="${src}">
+          <div class="del-overlay">×</div>
+        </div>`).join('')}
+        <div class="gallery-cell" onclick="galAdd('${key}')"><span class="add-icon">+</span></div>
+      </div>
+    </div>`;
+  });
+  galEl.innerHTML = '<div style="padding:16px 0">' + html + '</div>';
+}
+
+let galLPTimer = null;
+function galLongPress(key, idx, el){
+  galLPTimer = setTimeout(()=>{
+    const d = ld();
+    if(!d[key]) return;
+    d[key].splice(idx,1);
+    sv(d); renderGallery();
+  }, 600);
+}
+function galCancelLP(){ if(galLPTimer){clearTimeout(galLPTimer);galLPTimer=null;} }
+
+function galAdd(key){
+  const inp = document.createElement('input');
+  inp.type='file'; inp.accept='image/*';
+  inp.onchange = e => {
+    const file = e.target.files[0]; if(!file)return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const max=800; let w=img.width,h=img.height;
+        if(w>h){if(w>max){h=Math.round(h*max/w);w=max;}}else{if(h>max){w=Math.round(w*max/h);h=max;}}
+        canvas.width=w;canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        const d=ld(); if(!d[key])d[key]=[];
+        d[key].push(canvas.toDataURL('image/jpeg',0.75));
+        sv(d); renderGallery();
+      };
+      img.src=ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  inp.click();
+}
+
+function showDTab(name){
+  document.querySelectorAll('.dtab-view').forEach(v=>v.style.display='none');
+  document.querySelectorAll('.dtab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('dtab-'+name).style.display='block';
+  if(name==='gallery')renderGallery();
+  document.querySelectorAll('.dtab').forEach(b=>{if(b.textContent.toLowerCase()===name)b.classList.add('active')});
+}
+
+function renderHighlights(){
+  const t=currentTrip;
+  let html='';
+  if(t.alert) html+=`<div class="alert-box">${t.alert}</div>`;
+  t.highlights.forEach(section=>{
+    html+=`<div class="place-section"><div class="place-name">${section.place}</div>`;
+    section.items.forEach(item=>{
+      html+=`<div class="highlight-item"><div class="hi-dot"></div><div class="hi-text">${item.text}</div></div>`;
+    });
+    html+='</div>';
+  });
+  document.getElementById('dtab-highlights').innerHTML=html;
+}
+
+function renderBookings(){
+  const d=ld();
+  const booked=d[currentTrip.id+'_bookings']||{};
+  const html=currentTrip.bookings.map((b,i)=>{
+    const done=!!booked[i];
+    return `<div class="booking-item${done?' done-item':''}" onclick="toggleBooking(${i})">
+      <div class="booking-check${done?' done':''}"></div>
+      <div class="booking-text">${b.text}</div>
+      <div class="booking-priority ${b.priority}">${b.priority.toUpperCase()}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('dtab-bookings').innerHTML=html||'<div style="font-size:0.85rem;color:rgba(201,168,76,0.3);padding:20px 0;text-align:center">No bookings listed.</div>';
+}
+
+function toggleBooking(idx){
+  const d=ld();
+  const key=currentTrip.id+'_bookings';
+  if(!d[key])d[key]={};
+  d[key][idx]=!d[key][idx];
+  sv(d);renderBookings();
+}
+
+function loadReadiness(){
+  const d=ld();
+  document.getElementById('readiness-area').value=d[currentTrip.id+'_readiness']||'';
+}
+function saveReadiness(){
+  const d=ld();
+  d[currentTrip.id+'_readiness']=document.getElementById('readiness-area').value;
+  sv(d);toast('Saved');
+}
+
+let tTimer;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(tTimer);tTimer=setTimeout(()=>t.classList.remove('show'),2000)}
+
+renderList();
+
+// ═══════════════════════════════════════════════
+// EXPORT / IMPORT
+// ═══════════════════════════════════════════════
+const EI_KEYS = ['horizon_v2'];
+
+function eiOpen(){{
+  document.getElementById('ei-code-area').value='';
+  document.getElementById('ei-copy-btn').style.display='block';
+  document.getElementById('ei-confirm-btn').style.display='none';
+  document.getElementById('ei-overlay').classList.add('show');
+}}
+function eiClose(){{document.getElementById('ei-overlay').classList.remove('show')}}
+
+function eiExport(){{
+  const data={};
+  EI_KEYS.forEach(k=>{{const v=localStorage.getItem(k);if(v)data[k]=v;}});
+  const code=btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  document.getElementById('ei-code-area').value=code;
+  document.getElementById('ei-copy-btn').style.display='block';
+  document.getElementById('ei-confirm-btn').style.display='none';
+}}
+
+function eiImportMode(){{
+  document.getElementById('ei-code-area').value='';
+  document.getElementById('ei-code-area').placeholder='Paste your backup code here...';
+  document.getElementById('ei-copy-btn').style.display='none';
+  document.getElementById('ei-confirm-btn').style.display='block';
+}}
+
+function eiCopy(){{
+  const code=document.getElementById('ei-code-area').value;
+  if(!code)return;
+  navigator.clipboard.writeText(code).then(()=>{{
+    document.getElementById('ei-copy-btn').textContent='Copied ✓';
+    setTimeout(()=>document.getElementById('ei-copy-btn').textContent='Copy code',2000);
+  }}).catch(()=>{{
+    document.getElementById('ei-code-area').select();
+    document.execCommand('copy');
+  }});
+}}
+
+function eiConfirmImport(){{
+  const code=document.getElementById('ei-code-area').value.trim();
+  if(!code)return;
+  try{{
+    const data=JSON.parse(decodeURIComponent(escape(atob(code))));
+    Object.entries(data).forEach(([k,v])=>localStorage.setItem(k,v));
+    eiClose();
+    setTimeout(()=>location.reload(),300);
+  }}catch(e){{
+    alert('Invalid backup code — please check and try again');
+  }}
+}}
+</script>
+<!-- EXPORT/IMPORT -->
+<div id="ei-overlay" onclick="eiClose()">
+  <div id="ei-box" onclick="event.stopPropagation()">
+    <div class="ei-title">Data backup</div>
+    <div class="ei-sub">Export your data as a code to back it up or move it to a new URL. Import to restore.</div>
+    <div class="ei-btn-row">
+      <button class="ei-action-btn ei-export-btn" onclick="eiExport()">⬆ Export</button>
+      <button class="ei-action-btn ei-import-btn" onclick="eiImportMode()">⬇ Import</button>
+    </div>
+    <textarea id="ei-code-area" placeholder="Your backup code will appear here after export. Or paste an import code here."></textarea>
+    <div class="ei-code-action-row">
+      <button class="ei-copy-btn" id="ei-copy-btn" onclick="eiCopy()">Copy code</button>
+      <button class="ei-confirm-btn" id="ei-confirm-btn" onclick="eiConfirmImport()">Restore data</button>
+      <button class="ei-close-btn" onclick="eiClose()">Close</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
